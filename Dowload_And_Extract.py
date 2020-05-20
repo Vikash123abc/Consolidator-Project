@@ -1,18 +1,18 @@
 
 import requests
-
+# function for downloading tar files.
 def download_tar(url,name):
     print("Downloading Started")
     r = requests.get(url, allow_redirects=True)
     print("Successfully Downloaded")
     open(name, 'wb').write(r.content)
 
-# print("Downloaded_module successfully called")
 
-#Program for extracting all items of a file and putting in a folder called output.
+#Program for extracting all items of a file and putting in a folder called Output/extracted .
 import tarfile as tf
 import os
 
+# function for extarcting files from all three zip files.. 
 def extract_tar(name):
     print("Extracting Started of {}".format(name))
     a = tf.open(name)
@@ -21,7 +21,6 @@ def extract_tar(name):
     a.close()
     print("Extracting Finished")
 
-# print("imported extract_modules_successfully")
 
 
 
@@ -34,7 +33,9 @@ def main():
     extract_tar("2.tar")
     extract_tar("3.tar")
 
-    
-
-if __name__ == '__main__':
+#try and except for exception handling..    
+try:
+ if __name__ == '__main__':
     main()
+except:
+    print("An Erorr occured")
